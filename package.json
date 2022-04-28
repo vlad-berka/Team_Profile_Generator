@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vlad-berka/Team_Profile_Generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.3"
+    "inquirer": "^8.2.3",
+    "jest": "^28.0.2"
   }
 }
