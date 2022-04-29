@@ -1,4 +1,8 @@
 var inquirer = require('inquirer');
+const employee = require('./lib/employee');
+const engineer = require('./lib/engineer');
+const intern = require('./lib/intern');
+const manager = require('./lib/manager');
 
 var diff_Question_Array = ["Office Number", "GitHub Username", "School"];
 var diff_Answer_Array = ["1337", `john_doughey`, "University of Washington"];
@@ -6,6 +10,8 @@ var diff_Answer_Array = ["1337", `john_doughey`, "University of Washington"];
 var case_Num = 0;
 var employeeCount = 1;
 var team_Leader;
+
+var employee_List = [];
 
 function init() {
     console.log("\nLaunching the team building generator...");
@@ -60,6 +66,8 @@ function prompt_EmployeeInfo(employee_Name, member_type) {
         },
     ]).then((input_data) => {
         employeeCount++;
+        employee_List.push(add_Employee(employee_Name, input_data, member_type));
+        console.log(`Employee list is: ${employee_List}`);
         ask_Next();
     })
 }
@@ -81,7 +89,40 @@ function ask_Next() {
 
 function print_HTML() {
     console.log(`\nThere are a total of ${employeeCount-2} employees working under ${team_Leader}'s team`);
-    console.log("See the HTML for finalized team profiles")
+    console.log("See the HTML for finalized team profiles... Quick summary of employees below...\n");
+    
+    employee_List.forEach(employee => {
+        employee.getName();
+        employee.getRole();
+        employee.getId();
+        employee.getEmail();
+
+        switch(employee.getRole()) {
+            case "Team Manager":
+                employee.getOfficeNum();
+                break;
+            case "Intern":
+                employee.getSchool();
+                break;
+            case "Engineer":
+                employee.getGitHub();
+                break;
+        }
+    });
+}
+
+function add_Employee(employee_Name, input_data, member_type) {
+    switch (member_type) {
+        case "Engineer":
+            console.log("Creating Engineer Class-Object");
+            return new engineer(employee_Name, input_data.employeeID, input_data.employeeEmail, input_data.diff_Question);
+        case "Intern":
+            console.log("Creating Intern Class-Object");
+            return new intern(employee_Name, input_data.employeeID, input_data.employeeEmail, input_data.diff_Question);
+        case "Team Manager":
+            console.log("Creating Manager Class-Object");
+            return new manager(employee_Name, input_data.employeeID, input_data.employeeEmail, input_data.diff_Question);
+    }
 }
 
 init();
