@@ -167,45 +167,46 @@ function HTML_Card_Writer() {
         switch(employee.getRole()) {
             case "Manager":
                 card_String += `        <!-- Manager ${employee.getName()} -->        
-            <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
-            <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
-            <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
-            <div class="card-body bg-alert" data-id="1">
-                <h5 class="text-center" style="font-size: 50px">&#127867;</h5>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">Office Number: ${employee.getOfficeNum()}</p>
-            </div>
+        <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
+        <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
+        <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
+        <div class="card-body bg-alert" data-id="1">
+            <h5 class="text-center" style="font-size: 50px">&#127867;</h5>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">Office Number: ${employee.getOfficeNum()}</p>
+        </div>
         </div>
         `;
-                break;
+            break;
             case "Intern":
                 card_String += `        <!-- Intern ${employee.getName()} -->        
-            <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
-            <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
-            <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
-            <div class="card-body bg-alert" data-id="1">
-                <h5 class="text-center" style="font-size: 50px">&#127891;</h5>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">School: ${employee.getSchool()}</p>
-            </div>
+        <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
+        <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
+        <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
+        <div class="card-body bg-alert" data-id="1">
+            <h5 class="text-center" style="font-size: 50px">&#127891;</h5>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">School: ${employee.getSchool()}</p>
+        </div>
         </div>
         `;
+            break;
             case "Engineer":
                 card_String += `        <!-- Engineer ${employee.getName()} -->        
-            <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
-            <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
-            <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
-            <div class="card-body bg-alert" data-id="1">
-                <h5 class="text-center" style="font-size: 50px">&#128083;</h5>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
-                <p class="card-text bg-light border text-dark" style="padding: 5px">GitHub: ${employee.getGitHub()}</p>
-            </div>
+        <div class="card border-primary text-white" style="width: 15rem; margin: 25px; box-shadow: 10px 10px 5px darkgray">
+        <div class="card-header bg-primary text-center" style="font-size: 20px; ; text-shadow: 2px 2px 2px black; font-weight: bold">${employee.getName()}</div>
+        <div class="card-header bg-primary text-center" style="font-size: 15px; text-shadow: 2px 2px 2px black">${employee.getRole()}</div>
+        <div class="card-body bg-alert" data-id="1">
+            <h5 class="text-center" style="font-size: 50px">&#128083;</h5>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">ID: ${employee.getId()}</p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">Email: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></p>
+            <p class="card-text bg-light border text-dark" style="padding: 5px">GitHub: <a href="https://github.com/${employee.getGitHub()}" target="_blank">${employee.getGitHub()}</a></p>
+        </div>
         </div>
         `;
-                break;
+            break;
         }
     });
 
