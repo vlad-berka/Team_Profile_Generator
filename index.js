@@ -1,23 +1,31 @@
+// Importing inquirer in-line console manager
 var inquirer = require('inquirer');
+// Importing file system for write-file functionality 
 const fs = require('fs');
 
+// Importing the engineer, intern, and manager classes
 const engineer = require('./lib/engineer');
 const intern = require('./lib/intern');
 const manager = require('./lib/manager');
 
+// Initializing arrays to iterate over inquirer
 var diff_Question_Array = ["Office Number", "GitHub Username", "School"];
 var diff_Answer_Array = ["1337", `john_doughey`, "University of Washington"];
 
+// Initializing global variables as trackers
 var case_Num = 0;
 var team_Leader;
 
+// Initializing variable to store the employee objects in an array
 var employee_List = [];
 
+// First function 
 function init() {
     console.log("\nLaunching the team building generator...");
     prompt_Name("Team Manager");
 }
 
+// Function that asks the name of the employee in question - used for future personalized console prompt lines
 function prompt_Name(member_type) {
     inquirer
     .prompt([
@@ -31,10 +39,13 @@ function prompt_Name(member_type) {
             if (!team_Leader) {
                 team_Leader = input_data.employeeName;
             }
+            // Asks for the remainder of the employee information after the name is recieved
+            // name is used for personalized inline console prompt lines
             prompt_EmployeeInfo(input_data.employeeName, member_type);
         })
 }
 
+// Function that asks for the remainder of the employee info
 function prompt_EmployeeInfo(employee_Name, member_type) {
     if(member_type=="Engineer"){
         case_Num=1;
@@ -65,11 +76,13 @@ function prompt_EmployeeInfo(employee_Name, member_type) {
             default: `${diff_Answer_Array[case_Num]}`
         },
     ]).then((input_data) => {
+        // Adds the employee to the employee array 
         employee_List.push(add_Employee(employee_Name, input_data, member_type));
         ask_Next();
     })
 }
 
+// RECURSIVE function that asks for the next employees
 function ask_Next() {
     inquirer
         .prompt([
@@ -81,10 +94,13 @@ function ask_Next() {
                 default: "Finish Building Team"
             }
         ]).then((input_data) => {
+            // Recursive if statement, re-calls prompt_Name() that that then calls prompt_EmployeeInfo() that then calls ask_Next() and is back to here
+            // print_HTML is the final method to create an index.html file
             (input_data.employeeTypes=="Finish Building Team")?print_HTML():prompt_Name(input_data.employeeTypes);
         })
 }
 
+// Function to create and return an employee object based on console data from inquirer
 function add_Employee(employee_Name, input_data, member_type) {
     switch (member_type) {
         case "Engineer":
@@ -99,7 +115,9 @@ function add_Employee(employee_Name, input_data, member_type) {
     }
 }
 
+// Function that creates the index.html file from the employee array of objects
 function print_HTML() {
+    // optional function to print the employee information so it's visible in the console
     print_To_Console();
    
     var HTML_String = `<!DOCTYPE html>
@@ -132,9 +150,11 @@ function print_HTML() {
 </body>
 </html>`;
 
-    fs.writeFileSync('index.html', HTML_String);
+    // Writing out the HTML string out to the index.html file
+    fs.writeFileSync('./dist/index.html', HTML_String);
 }
 
+// Function to print the employee array of objects out to the console
 function print_To_Console() {
     console.log(`\nThere are a total of ${employee_List.length-1} employees working under ${team_Leader}'s team`);
     console.log("See the HTML for finalized team profiles... Quick summary of employees below...");
@@ -160,6 +180,7 @@ function print_To_Console() {
     });
 }
 
+// Function that writes out employee information as a string literal in the HTML language
 function HTML_Card_Writer() {
     var card_String = ``;
 
@@ -213,4 +234,5 @@ function HTML_Card_Writer() {
     return card_String;
 }
 
+// Calling and Initializing the javascript script here
 init();
