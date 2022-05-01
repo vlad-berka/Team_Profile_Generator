@@ -70,7 +70,7 @@ THEN I exit the application, and the HTML is generated
 
 ## Screenshot of the Team Profile Generator, General Appearance
 
-![Vladimir Berka's Team Profile Generator](./assets/images/Team_Profile_Generator_ScreenShot_1.png "Team Profile Generator")
+![Vladimir Berka's Team Profile Generator](./assets/Team_Profile_Generator_ScreenShot_1.png "Team Profile Generator")
 
 ## Instructor Provided Mock-Up
 
