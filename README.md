@@ -2,7 +2,7 @@
 ## Vladimir Berka's Homework #10
 
 ## Assignment Description
-This is a HTML/Javascript homework assignment for the UW Bootcamp. The goal of the assignment is to create a console enabled web app that populates team member information based on command line inputs. The Javascript file is the primary challenge of this assignment. 
+This is a HTML/Javascript homework assignment for the UW Bootcamp. The goal of the assignment is to create a console enabled web app that populates team member information based on command line inputs. Unit Testing should also be utilized. The Javascript file is the primary challenge of this assignment. "Inquirer" and "Jest" NPM packages shall be used.
 
 A mockup is provided by the instructor to demonstrate desired application appearance.
 
@@ -11,57 +11,62 @@ The original user story, acceptance criteria, and mockup for the assignment is c
 ## Assignment Scope
 Create a command line script that allows a user to enter in team member information and render a final HTML web page. Information and data should be stored in classes before rendering an HTML document.
 
+Information and functionality shall be verified with Unit Testing.
+
 No starting code has been provided.
 
 ## Generalized Tasks
-- Use the Bootstrap framework and populate the DOM with: time, a text area, and a save button
-- Write a javascript file with multiple functions to handle scheduling operations (pull data, write data, save data)  
-- Use `moment()` and add date information to the webpage
-- Use `Buttons` and `listenerEvents` to add web app functionality and responsiveness
-- Store scheduling data in `localStorage`
-
-## Summary of Work Completed
-
+- Use NPM "Inquirer" to create command line prompts for user input
+- Write a javascript file with multiple functions to handle prompting for user input
+- Create classes with proper intheritance and polymorphism to access data
+- Use `string literals` to populate an HTML file for the final rendered page
+- Use NPM "Jest" to create meaningful unit tests
 
 ## List of Files
 * README.md - This current read me file
-* index.html - HTML file for the initial website, provided and not 
-* ~./assets/style.css - CSS files for the above noted website 
-* ~./assets/javascript.js - Javascript file containing functions for the day scheduler
-* ~./assets/images/05-third-party-apis-homework-demo.gif - A gif file demonstrating desired functionality provided by the instructor
-* ~./assets/images/Work_Day_Scheduler_ScreenShot_1.png - PNG files of the web application screenshots
+* gitignore - Git Ignore file to ignore node_modules and DS.Store (Mac users)
+* index.js - The primary script file to run in the command line
+* package.JSON - JSON package that stores modules and settings used
+* ~./__test__/ - Javascript test files for the above noted website, tested using "Jest"
+* ~./assets/- Folder for stored screenshots and instructor provided demo.gif
+* ~./dist/ - A folder for storing the finalized rendered HTML file and web page
+* ~./lib/ - A folder for storing the separate class javascript files used
 
 # Original Homework Assignment Details
 
 ## User Story
 
 ```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+AS A manager
+I WANT to generate a webpage that displays my team's basic info
+SO THAT I have quick access to their emails and GitHub profiles
 ```
 
 ## Acceptance Criteria
 
 ```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+GIVEN a command-line application that accepts user input
+WHEN I am prompted for my team members and their information
+THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+WHEN I click on an email address in the HTML
+THEN my default email program opens and populates the TO field of the email with the address
+WHEN I click on the GitHub username
+THEN that GitHub profile opens in a new tab
+WHEN I start the application
+THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+WHEN I enter the team manager’s name, employee ID, email address, and office number
+THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
+WHEN I select the engineer option
+THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+WHEN I select the intern option
+THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
+WHEN I decide to finish building my team
+THEN I exit the application, and the HTML is generated
 ```
 
-## URL to the rendered webpage
+## URL to the GitHub Repository
 
-[GitHub Pages Link:https://vlad-berka.github.io/Team_Profile_Generator/](https://vlad-berka.github.io/Team_Profile_Generator/)
+[GitHub Pages Link:https://github.com/vlad-berka/Team_Profile_Generator](https://github.com/vlad-berka/Team_Profile_Generator)
 
 ## Screenshot of the Team Profile Generator, General Appearance
 
